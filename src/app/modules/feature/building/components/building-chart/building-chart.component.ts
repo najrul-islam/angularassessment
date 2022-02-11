@@ -108,7 +108,7 @@ export class BuildingChartComponent implements OnInit {
     //this.selectedDrodDown.endDate = args?.model?.endValue;
   }
 
-  public onChange(args: any) {
+  public onChange(args: any): void {
     console.log(args);
     this.selectedDrodDown.startDate = args?.startDate;
     this.selectedDrodDown.endDate = args?.endDate;

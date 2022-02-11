@@ -8,7 +8,9 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'Assessment-Angular';
+
   constructor(private router: Router) { }
+
   ngOnInit() {
     this.router.navigate(['/building/chart']);
   }
