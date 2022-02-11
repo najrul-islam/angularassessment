@@ -20,7 +20,18 @@
     "@angular/router": "~13.2.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "@angular/material": "13.2.2",
+    "@syncfusion/ej2-angular-base": "19.4.48",
+    "@syncfusion/ej2-angular-buttons": "19.4.48",
+    "@syncfusion/ej2-angular-charts": "19.4.50",
+    "@syncfusion/ej2-angular-dropdowns": "19.4.48",
+    "@syncfusion/ej2-angular-inputs": "19.4.48",
+    "@syncfusion/ej2-charts": "19.4.50",
+    "@syncfusion/ej2-material-theme": "19.4.48",
+    "@syncfusion/ej2-angular-calendars": "19.4.50",
+    "@syncfusion/ej2-inputs": "19.4.48",
+    "@syncfusion/ej2-base": "19.4.48"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~13.2.3",

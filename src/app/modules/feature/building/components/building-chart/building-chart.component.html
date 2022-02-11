@@ -1,0 +1,50 @@
+<div align='center' *ngIf="dropdownList">
+    <!-- Building -->
+    <mat-form-field appearance="fill">
+        <mat-label></mat-label>
+        <select matNativeControl (change)="onchangeBuildnig($event.value)" [(ngModel)]="selectedDrodDown.buildingId">
+            <option *ngFor="let building of dropdownList.buildings" [value]="building.id">{{building.name}}</option>
+        </select>
+    </mat-form-field>
+    <!-- Object -->
+    <mat-form-field appearance="fill">
+        <mat-label></mat-label>
+        <select matNativeControl (change)="onchangeBuildnig($event.value)" [(ngModel)]="selectedDrodDown.objectId">
+            <option *ngFor="let object of dropdownList.objects" [value]="object.id">{{object.name}}</option>
+        </select>
+    </mat-form-field>
+
+    <!-- DataField -->
+    <mat-form-field appearance="fill">
+        <mat-label></mat-label>
+        <select matNativeControl (change)="onchangeBuildnig($event.value)" [(ngModel)]="selectedDrodDown.dataFieldId">
+            <option *ngFor="let dataField of dropdownList.dataFields" [value]="dataField.id">{{dataField.name}}</option>
+        </select>
+    </mat-form-field>
+
+    <!-- DataRange -->
+    <div class="control-section">
+        <div id="control_wrapper">
+            <ejs-daterangepicker [startDate]='selectedDrodDown.startDate' [endDate]='selectedDrodDown.endDate'
+                (open)="onOpen($event)" (select)="onSelect($event)" (change)='onChange($event)'>
+            </ejs-daterangepicker>
+        </div>
+    </div>
+    <!-- Search -->
+    <button mat-stroked-button color="primary" (click)="onClickSearch()">Search</button>
+</div>
+
+<!-- Chart -->
+<div class="control-section">
+    <div align='center' *ngIf="chartData">
+        <ejs-chart style='display:block' align='center' id='chartcontainer' [title]='title'
+            [primaryXAxis]='primaryXAxis' [primaryYAxis]='primaryYAxis' [tooltip]='tooltip' (load)='load($event)'
+            [chartArea]='chartArea' [width]='width' [legendSettings]='legend'>
+            <e-series-collection>
+                <e-series [dataSource]='chartData' type='MultiColoredLine' xName='timestamp' yName='value'
+                    segmentAxis='Y' name='' width=2 [segments]='segments'>
+                </e-series>
+            </e-series-collection>
+        </ejs-chart>
+    </div>
+</div>
