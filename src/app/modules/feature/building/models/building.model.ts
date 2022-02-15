@@ -40,9 +40,8 @@ export interface IBuildingChartDropdownDto {
     objects: IObject[];
     dataFields: IDataField[];
 }
-
-export class BuildingChartDropdownDto {
-    buildings: IBuilding[];
-    objects: IObject[];
-    dataFields: IDataField[];
+export class BuildingChartDropdownDto implements IBuildingChartDropdownDto {
+    buildings: IBuilding[] = [];
+    objects: IObject[] = [];
+    dataFields: IDataField[] = [];
 }

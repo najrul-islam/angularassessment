@@ -21,3 +21,8 @@
 // @import "../node_modules/@syncfusion/ej2-grids/styles/material.css";
 
 
+.e-daterangepicker.e-popup,
+.e-bigger.e-small .e-daterangepicker.e-popup {
+  background: #fff;
+  position: absolute;
+}

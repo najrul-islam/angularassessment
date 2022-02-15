@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartTheme, DateTime, ILoadedEventArgs } from '@syncfusion/ej2-charts';
-import { IBuildingChartDropdownDto } from '../../models/building.model';
+import { ChartTheme, ILoadedEventArgs } from '@syncfusion/ej2-charts';
+import { BuildingChartDropdownDto, IBuildingChartDropdownDto } from '../../models/building.model';
 import { BuildingService } from '../../services/building.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { BuildingService } from '../../services/building.service';
 export class BuildingChartComponent implements OnInit {
   public title: string = 'Timeseries Data';
 
-  dropdownList: IBuildingChartDropdownDto;
+  dropdownList: IBuildingChartDropdownDto = new BuildingChartDropdownDto();
   selectedDrodDown: { buildingId: number, objectId: number, dataFieldId: number, startDate: Date, endDate: Date } = {
     buildingId: 1,
     objectId: 1,
@@ -23,6 +23,7 @@ export class BuildingChartComponent implements OnInit {
   constructor(private _buildingService: BuildingService) { }
 
   ngOnInit() {
+    this.dropdownList.buildings
     this.getDropdownList();
     // this.getReadings();
     this.getReadingsObj();
@@ -80,19 +81,17 @@ export class BuildingChartComponent implements OnInit {
   }
   public getDropdownList(): void {
     this._buildingService.getDropdownList().subscribe(res => {
-      console.log(res);
+      // console.log(res);
       this.dropdownList = res;
     });
   }
   public getReadings(): void {
     this._buildingService.getReadings(this.selectedDrodDown.buildingId, this.selectedDrodDown.objectId, this.selectedDrodDown.dataFieldId, this.selectedDrodDown.startDate, null).subscribe(res => {
-      console.log('getReadings', res);
       this.chartData = res;
     });
   }
   public getReadingsObj(): void {
     this._buildingService.getReadingsObj(this.selectedDrodDown).subscribe(res => {
-      console.log('getReadingsObj', res);
       this.chartData = res;
     });
   }
@@ -109,7 +108,6 @@ export class BuildingChartComponent implements OnInit {
   }
 
   public onChange(args: any): void {
-    console.log(args);
     this.selectedDrodDown.startDate = args?.startDate;
     this.selectedDrodDown.endDate = args?.endDate;
   }

@@ -1,4 +1,4 @@
-<div align='center' *ngIf="dropdownList">
+<div align='center'>
     <!-- Building -->
     <mat-form-field appearance="fill">
         <mat-label></mat-label>
@@ -23,12 +23,10 @@
     </mat-form-field>
 
     <!-- DataRange -->
-    <div class="control-section">
-        <div id="control_wrapper">
-            <ejs-daterangepicker [startDate]='selectedDrodDown.startDate' [endDate]='selectedDrodDown.endDate'
-                (open)="onOpen($event)" (select)="onSelect($event)" (change)='onChange($event)'>
-            </ejs-daterangepicker>
-        </div>
+    <div class="datarange-control">
+        <ejs-daterangepicker [startDate]='selectedDrodDown.startDate' [endDate]='selectedDrodDown.endDate'
+            (open)="onOpen($event)" (select)="onSelect($event)" (change)='onChange($event)'>
+        </ejs-daterangepicker>
     </div>
     <!-- Search -->
     <button mat-stroked-button color="primary" (click)="onClickSearch()">Search</button>
